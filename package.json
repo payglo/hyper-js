@@ -1,0 +1,45 @@
+{
+    "name": "@payglo/hyper-js",
+    "version": "1.6.0",
+    "main": "index.js",
+    "module": "index.mjs",
+    "exports": {
+        ".": {
+            "import": "./index.mjs",
+            "require": "./index.js"
+        }
+    },
+    "dependencies": {
+        "@ryyppy/rescript-promise": "^2.1.0",
+        "bs-fetch": "^0.6.2",
+        "esbuild": "^0.18.17",
+        "esbuild-plugin-inline-image": "^0.0.9",
+        "esbuild-postcss": "^0.0.4",
+        "react-scripts": "^5.0.1"
+    },
+    "scripts": {
+        "re:build": "rescript",
+        "re:start": "rescript build -w",
+        "re:clean": "rescript clean",
+        "build:es": "node build.js",
+        "publish:public": "npm publish --access public"
+    },
+    "devDependencies": {
+        "esbuild-css-modules-plugin": "^2.7.1",
+        "rescript": "^10.0.1"
+    },
+    "directories": {
+        "lib": "lib"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git@github.com:payglo/hyper-js.git"
+    },
+    "author": "",
+    "license": "ISC",
+    "homepage": "https://github.com/payglo/hyper-js#readme",
+    "bugs": {
+        "url": "https://github.com/payglo/hyper-js/issues"
+    },
+    "description": ""
+}
