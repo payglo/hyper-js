@@ -5,12 +5,12 @@ let loadHyper = (str, option: option<Js.Json.t>) => {
     let sessionID = generateSessionID()
     let timeStamp = Js.Date.now()
     let scriptURL = switch Types.getEnv(option) {
-    | "SANDBOX" => "http://localhost:3000/HyperLoader.js"
-    | "PROD" => "../LiveHyperLoader.js"
+    | "SANDBOX" => "https://checkout.payglo.io/LiveHyperLoader.js"
+    | "PROD" => ".https://checkout.payglo.io/LiveHyperLoader.js"
     | _ =>
       str->Js.String2.startsWith("pk_prd_")
-        ? "../LiveHyperLoader.js"
-        : "http://localhost:3000/HyperLoader.js"
+        ? ".https://checkout.payglo.io/LiveHyperLoader.js"
+        : "https://checkout.payglo.io/LiveHyperLoader.js"
     }
     let analyticsObj =
       [

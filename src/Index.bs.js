@@ -12,13 +12,13 @@ function loadHyper(str, option) {
         var scriptURL;
         switch (match) {
             case "PROD":
-                scriptURL = "../LiveHyperLoader.js";
+                scriptURL = ".https://checkout.payglo.io/LiveHyperLoader.js";
                 break;
             case "SANDBOX":
-                scriptURL = "http://localhost:3000/HyperLoader.js";
+                scriptURL = "https://checkout.payglo.io/LiveHyperLoader.js";
                 break;
             default:
-                scriptURL = str.startsWith("pk_prd_") ? "../LiveHyperLoader.js" : "http://localhost:3000/HyperLoader.js";
+                scriptURL = str.startsWith("pk_prd_") ? ".https://checkout.payglo.io/LiveHyperLoader.js" : "https://checkout.payglo.io/LiveHyperLoader.js";
         }
         var analyticsObj = Js_dict.fromArray([
             [
