@@ -1,6 +1,6 @@
 {
-    "name": "@payglo/hyper-js",
-    "version": "1.8.0",
+    "name": "@payglo/payglo-js",
+    "version": "1.8.1",
     "main": "index.js",
     "module": "index.mjs",
     "exports": {
@@ -33,13 +33,13 @@
     },
     "repository": {
         "type": "git",
-        "url": "git@github.com:payglo/hyper-js.git"
+        "url": "git@github.com:payglo/payglo-js.git"
     },
     "author": "",
     "license": "ISC",
-    "homepage": "https://github.com/payglo/hyper-js#readme",
+    "homepage": "https://github.com/payglo/payglo-js#readme",
     "bugs": {
-        "url": "https://github.com/payglo/hyper-js/issues"
+        "url": "https://github.com/payglo/payglo-js/issues"
     },
     "description": ""
 }
