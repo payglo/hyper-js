@@ -1,0 +1,1 @@
+{ "dirs" : [ "src" ] , "pkgs" : [ [ "@ryyppy\\rescript-promise" , "D:\\hyperswitch\\hyper-js\\node_modules\\@ryyppy\\rescript-promise" ] , [ "bs-fetch" , "D:\\hyperswitch\\hyper-js\\node_modules\\bs-fetch" ] ] , "generated" : [] }

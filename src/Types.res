@@ -42,7 +42,7 @@ type confirmPaymentParams = {
   elements: Js.Json.t,
   confirmParams: Js.Nullable.t<confirmParams>,
 }
-type hyperInstance = {
+type paygloInstance = {
   confirmPayment: Js.Json.t => Js.Promise.t<Js.Json.t>,
   elements: Js.Json.t => element,
   confirmCardPayment: Js_OO.Callback.arity4<
@@ -52,7 +52,7 @@ type hyperInstance = {
   widgets: Js.Json.t => element,
   paymentRequest: Js.Json.t => Js.Json.t,
 }
-type hyperInstanceMake = (string, option<Js.Json.t>, Js.Json.t) => hyperInstance
+type paygloInstanceMake = (string, option<Js.Json.t>, Js.Json.t) => paygloInstance
 
 let confirmPaymentFn = (_elements: Js.Json.t) => {
   Js.Promise.resolve(Js.Dict.empty()->Js.Json.object_)
@@ -107,7 +107,7 @@ let emptyElement = {
   fetchUpdates,
   create,
 }
-let emptyHyperInstance = {
+let emptyPaygloInstance = {
   confirmPayment: confirmPaymentFn,
   confirmCardPayment: confirmCardPaymentFn,
   retrievePaymentIntent: retrievePaymentIntentFn,
@@ -157,5 +157,5 @@ let getEnv = option => {
 
 module OrcaJs = {
   @val @scope("window")
-  external hyperInstance: Js.Nullable.t<hyperInstanceMake> = "Hyper"
+  external paygloInstance: Js.Nullable.t<paygloInstanceMake> = "Payglo"
 }

@@ -1,16 +1,16 @@
 open Types
 
-let loadHyper = (str, option: option<Js.Json.t>) => {
+let loadPayglo = (str, option: option<Js.Json.t>) => {
   Js.Promise.make((~resolve, ~reject) => {
     let sessionID = generateSessionID()
     let timeStamp = Js.Date.now()
     let scriptURL = switch Types.getEnv(option) {
-    | "SANDBOX" => "https://checkout.payglo.io/HyperLoader.js"
-    | "PROD" => ".https://checkout.payglo.io/LiveHyperLoader.js"
+    | "SANDBOX" => "https://checkout.payglo.io/PaygloLoader.js"
+    | "PROD" => "https://checkout.payglo.io/PaygloLoader.js"
     | _ =>
       str->Js.String2.startsWith("pk_prd_")
-        ? "https://checkout.payglo.io/LiveHyperLoader.js"
-        : "https://checkout.payglo.io/HyperLoader.js"
+        ? "https://checkout.payglo.io/PaygloLoader.js"
+        : "https://checkout.payglo.io/PaygloLoader.js"
     }
     let analyticsObj =
       [
@@ -23,7 +23,7 @@ let loadHyper = (str, option: option<Js.Json.t>) => {
         let script = Window.createElement("script")
         script->Window.elementSrc(scriptURL)
         script->Window.elementOnload(() => {
-          switch OrcaJs.hyperInstance->Js.Nullable.toOption {
+          switch OrcaJs.paygloInstance->Js.Nullable.toOption {
           | Some(instance) => resolve(. instance(str, option, analyticsObj))
           | None => ()
           }
@@ -34,9 +34,9 @@ let loadHyper = (str, option: option<Js.Json.t>) => {
         Window.body->Window.appendChild(script)
       } else {
         Js.Console.warn(
-        `INTEGRATION WARNING: There is already an existing script tag for ${scriptURL}. Multiple additions of HyperLoader.js is not permitted, please add it on the top level only once.`,
+        `INTEGRATION WARNING: There is already an existing script tag for ${scriptURL}. Multiple additions of PaygloLoader.js is not permitted, please add it on the top level only once.`,
       )
-        switch OrcaJs.hyperInstance->Js.Nullable.toOption {
+        switch OrcaJs.paygloInstance->Js.Nullable.toOption {
           | Some(instance) => resolve(. instance(str, option, analyticsObj))
           | None => ()
           }
@@ -45,6 +45,6 @@ let loadHyper = (str, option: option<Js.Json.t>) => {
 }
 
 let loadStripe = (str, option) => {
-  Js.Console.warn("loadStripe is deprecated. Please use loadHyper instead.")
-  loadHyper(str, option)
+  Js.Console.warn("loadStripe is deprecated. Please use loadPayglo instead.")
+  loadPayglo(str, option)
 }

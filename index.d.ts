@@ -1,1 +1,1 @@
-declare module '@payglo/hyper-js';
+declare module "@payglo/payglo-js";

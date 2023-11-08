@@ -2,14 +2,14 @@
 
 
 function iframePostMessage(iframeRef, message) {
-    if (iframeRef == null) {
-        console.error("This element does not exist or is not mounted yet.");
-    } else {
-        iframeRef.contentWindow.postMessage(JSON.stringify(message), "*");
-    }
+  if (iframeRef == null) {
+    console.error("This element does not exist or is not mounted yet.");
+  } else {
+    iframeRef.contentWindow.postMessage(JSON.stringify(message), "*");
+  }
 }
 
 export {
-    iframePostMessage,
+  iframePostMessage ,
 }
 /* No side effect */
